@@ -88,8 +88,7 @@ def roomChooser():
             continuar()
             break
         else:
-            print(
-                "La habitación seleccionada no se encuentra disponible, por favor intente de nuevo.")
+            print("La habitación seleccionada no se encuentra disponible, por favor intente de nuevo.")
             continue
 
 
