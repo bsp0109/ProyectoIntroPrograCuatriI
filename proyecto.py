@@ -38,7 +38,7 @@ def menu():
 
     while True:
         answer = ""
-        answer = input("En qué le podemos ayudar? (a,b,c,d) > ")
+        answer = input("En qué le podemos ayudar? (a,b,c,d) > ").lower()
         if answer == "Estadia en el Hospital" or answer == "a":
             roomChooser()
             break
