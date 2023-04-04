@@ -6,12 +6,6 @@ Proyecto: Sistema de estadía y servicios de un hospital privado
 Autores : Brandon Sánchez Porras, Evan Marín Jimenez
 '''
 
-roomCost = 0
-serviceCost = 0
-drugsCost = 0
-totalBill = 0
-
-
 def login():
     user1 = "Admin1"
     user2 = "Admin2"
@@ -63,26 +57,48 @@ def menu():
 
 
 def rooms():
+    global roomList
+    roomList = []
+
     print("Contamos con habitaciones muy bien equipadas para las necesidades de los pacientes.")
     print("A continuacion se muestran las habitaciones disponibles:")
 
-    for i in range(0, 30, 3):
-        print(i)
+    for i in range(1, 30, 3):
+        roomList.append(i)
 
-
+    print(f"-------------+-------------")
+    print(f"  Habitación | Costo       ")
+    print(f"-------------+-------------")
+    for i in range(len(roomList)):
+        print(f"{str(roomList[i]).zfill(2)}           |  ₡{roomList[i] * 10000}   ")
+    print(f"-------------+-------------")
+ 
+ 
+ 
 def roomChooser():
-    room = ""
+    room = 0
     # while room not in range(0,30,3):
     while True:
         rooms()
         room = int(input("Seleccione un número de habitación: "))
-        if room in range(0, 30, 3):
-            print("Perfecto!")
+        if room in roomList:
+            print(f"Perfecto! El total por la habitación es de ₡{room * 10000}")
+            global roomCost
+            roomCost = room * 10000
+            continuar()
             break
         else:
             print(
                 "La habitación seleccionada no se encuentra disponible, por favor intente de nuevo.")
             continue
+
+
+def continuar():
+    cont = int(input("Desea realizar otro trámite? (0 = no, 1 = sí) > "))
+    if cont == 0:
+        checkout()
+    else:
+        menu()
 
 
 def service():
