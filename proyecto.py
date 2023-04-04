@@ -6,6 +6,7 @@ Proyecto: Sistema de estadía y servicios de un hospital privado
 Autores : Brandon Sánchez Porras, Evan Marín Jimenez
 '''
 
+
 def login():
     user1 = "Admin1"
     user2 = "Admin2"
@@ -66,15 +67,14 @@ def rooms():
     for i in range(1, 30, 3):
         roomList.append(i)
 
-    print(f"-------------+-------------")
-    print(f"  Habitación | Costo       ")
-    print(f"-------------+-------------")
+    print("-------------+-------------")
+    print("  Habitación | Costo       ")
+    print("-------------+-------------")
     for i in range(len(roomList)):
-        print(f"{str(roomList[i]).zfill(2)}           |  ₡{roomList[i] * 10000}   ")
-    print(f"-------------+-------------")
- 
- 
- 
+        print(f"{str(roomList[i]).zfill(2)}           |  ₡{roomList[i] * 10000}")
+    print("-------------+-------------")
+
+
 def roomChooser():
     room = 0
     # while room not in range(0,30,3):
