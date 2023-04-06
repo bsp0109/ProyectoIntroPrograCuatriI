@@ -77,15 +77,18 @@ def rooms():
 
 
 def roomChooser():
+    global room
+    global cantDias
     room = 0
     # while room not in range(0,30,3):
     while True:
         rooms()
         room = int(input("Seleccione un número de habitación: "))
+        cantDias = int(input("Ingrese la cantidad de días que desea hospedarse: "))
         if room in roomList:
-            print(f"Perfecto! El total por la habitación es de ₡{room * 10000}")
             global roomCost
-            roomCost = room * 10000
+            roomCost = (room * 10000) * cantDias
+            print(f"Perfecto! El total por la habitación es de ₡{roomCost}")
             continuar()
             break
         else:
@@ -349,11 +352,100 @@ def service():
 
 
 def drugs():
-    print("WIP")
+    global medicamentos
+    global medicamentosCosto
+    medicamentos = []
+    medicamentosCosto = []
+
+    print(f"Bienvenido a la farmacia, {user}")
+    print("Le ofrecemos los productos a continuación: ")
+
+    print("| Medicamento                         | Costo  |")
+    print("+-------------------------------------+--------+")
+    print("| (1) Paracetamol 100 tab             | ₡5500  |")
+    print("| (2) Paracetamol codeina 100 tab     | ₡10000 |")
+    print("| (3) Acetaminofen Niños Jarabe 60ml  | ₡2200  |")
+    print("| (4) Ibuprofeno 100 tab              | ₡7000  |")
+
+    while True:
+        seleccion = int(input("Seleccione una opción (0 = salir)> "))
+        if seleccion == 1:
+            cantidad = int(input("Seleccione la cantidad que desea comprar > "))
+            precio = 5500
+            total = precio * cantidad
+            medicamentos.append("Paracetamol 100 tab")
+            medicamentosCosto.append(total)
+            print("Muchas gracias!")
+            cont = int(input("Desea ordenar otro producto? (0 = no, 1 = sí) > "))
+            if cont == 0:
+                continuar()
+                break
+            else:
+                continue
+        elif seleccion == 2:
+            cantidad = int(input("Seleccione la cantidad que desea comprar > "))
+            precio = 10000
+            total = precio * cantidad
+            print("Muchas gracias!")
+            medicamentos.append("Paracetamol codeina 100 tab")
+            medicamentosCosto.append(total)
+            cont = int(input("Desea ordenar otro producto? (0 = no, 1 = sí) > "))
+            if cont == 0:
+                continuar()
+                break
+            else:
+                continue
+        elif seleccion == 3:
+            cantidad = int(input("Seleccione la cantidad que desea comprar > "))
+            precio = 2200
+            total = precio * cantidad
+            print("Muchas gracias!")
+            medicamentos.append("Acetaminofen Niños Jarabe 60ml")
+            medicamentosCosto.append(total)
+            cont = int(input("Desea ordenar otro producto? (0 = no, 1 = sí) > "))
+            if cont == 0:
+                continuar()
+                break
+            else:
+                continue
+        elif seleccion == 4:
+            cantidad = int(input("Seleccione la cantidad que desea comprar > "))
+            precio = 7000
+            total = precio * cantidad
+            print("Muchas gracias!")
+            medicamentos.append("Ibuprofeno 100 tab")
+            medicamentosCosto.append(total)
+            cont = int(input("Desea ordenar otro producto? (0 = no, 1 = sí) > "))
+            if cont == 0:
+                continuar()
+                break
+            else:
+                continue
+        elif seleccion == 0:
+            menu()
+        else:
+            print("La opción seleccionada no existe, por favor intente de nuevo")
+
 
 
 def checkout():
-    print("WIP")
+    print("Bienvenido a cajas, a continuación se muestra su factura: ")
+    print("------------------------------------------------------------------------------")
+    print("Hospedaje:")
+    print("------------------------------------------------------------------------------")
+    print(f"Habitación: {room} | Estadía: {cantDias} días | Costo: ₡{roomCost}")
+    print("------------------------------------------------------------------------------")
+    print("Servicio:")
+    print("------------------------------------------------------------------------------")
+    print(f"{detallesCita} | Costo: ₡{costoCita}")
+    print("------------------------------------------------------------------------------")
+    print("Farmacia:")
+    print("------------------------------------------------------------------------------")
+    for i in range(len(medicamentos)):
+        print(f"Medicamento: {medicamentos[i]} | Costo: ₡{medicamentosCosto[i]}")
+    print("------------------------------------------------------------------------------")
+    print(f"Total: {roomCost + costoCita + sum(medicamentosCosto)}")
+    print("------------------------------------------------------------------------------")
 
 
 # ------------------MAIN-------------------
