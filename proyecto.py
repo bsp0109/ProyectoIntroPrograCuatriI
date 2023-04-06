@@ -17,6 +17,7 @@ def login():
     print("Bienvenid@ al sistema de estadía y servicio del Hospital #####")
 
     while True:
+        global user
         user = input("Ingrese su nombre de usuario: ")
         password = input("Ingrese su contraseña: ")
 
@@ -101,7 +102,250 @@ def continuar():
 
 
 def service():
-    print("WIP")
+    answer = ''
+    global costoCita
+    global detallesCita
+
+    print('Consulta General      (a) ₡30000')
+    print('Revision Dental       (b) ₡40000')
+    print('Electroencefalograma  (c) ₡150000')
+    print('Electrocardiograma    (d) ₡150000')
+    print('Revisión ginecologica (e) ₡30000')
+
+    answer = input('En que podriamos ayudarle? (a,b,c,d,e)').lower()
+
+    if answer == 'a':
+        costoCita = 30000
+        print('Necesitaremos algunos datos')
+        name = input('Ingrese su nombre:')
+        last_name = input('Ingrese su primer apellido:')
+
+        print('Bienvenido', name, last_name)
+
+        print("------+---------")
+        print(" Dia  | Horario ")
+        print("-----+----------")
+        print('(a)Lunes  | 1pm')
+        print('(b)Martes | 8am')
+        print('(c)Viernes| 10am')
+        print('(d)Sabado | 5pm')
+        print("------+---------")
+
+        cita = input('Ingrese el dia de la cita: (a,b,c,d)')
+
+        while True:
+            if cita == 'a':
+                print('Perfecto')
+                print('Su cita quedaria para el Lunes a la 1pm')
+                detallesCita = f"Consulta General | {last_name}, {name} Lunes 1:00 PM"
+                break
+
+            elif cita == 'b':
+                print('Perfecto')
+                print('Su cita quedaria para el Martes a las 8am')
+                detallesCita = f"Consulta General | {last_name}, {name} Martes 8:00 AM"
+                break
+
+            elif cita == 'c':
+                print('Perfecto')
+                print('Su cita quedaria para el Viernes a las 10am')
+                detallesCita = f"Consulta General | {last_name}, {name} Viernes 10:00 AM"
+                break
+
+            elif cita == 'd':
+                print('Perfecto')
+                print('Su cita quedaria para el Sabado a las 5pm')
+                detallesCita = f"Consulta General | {last_name}, {name} Sábado 5:00 PM"
+                break
+            else:
+                print("La opción seleccionada no existe, por favor intente de nuevo")
+                continue
+    elif answer == 'b':
+        costoCita = 40000
+        print('Necesitaremos algunos datos')
+        name = input('Ingrese su nombre:')
+        last_name = input('Ingrese su primer apellido:')
+
+        print('Bienvenido', name, last_name)
+
+        print("------+---------")
+        print(" Dia  | Horario ")
+        print("-----+----------")
+        print('(a)Lunes  | 1pm')
+        print('(b)Martes | 8am')
+        print('(c)Viernes| 10am')
+        print('(d)Sabado | 5pm')
+        print("------+---------")
+
+        cita = input('Ingrese el dia de la cita: (a,b,c,d)')
+
+        while True:
+            if cita == 'a':
+                print('Perfecto')
+                print('Su cita quedaria para el Lunes a la 1pm')
+                detallesCita = f"Revisión Dental | {last_name}, {name} Lunes 1:00 PM"
+                break
+
+            elif cita == 'b':
+                print('Perfecto')
+                print('Su cita quedaria para el Martes a las 8am')
+                detallesCita = f"Revisión Dental | {last_name}, {name} Martes 8:00 AM"
+                break
+
+            elif cita == 'c':
+                print('Perfecto')
+                print('Su cita quedaria para el Viernes a las 10am')
+                detallesCita = f"Revisión Dental | {last_name}, {name} Viernes 10:00 AM"
+                break
+
+            elif cita == 'd':
+                print('Perfecto')
+                print('Su cita quedaria para el Sabado a las 5pm')
+                detallesCita = f"Revisión Dental | {last_name}, {name} Sábado 5:00 PM"
+                break
+            else:
+                print("La opción seleccionada no existe, por favor intente de nuevo")
+                continue
+    elif answer == 'c':
+        costoCita = 150000
+        print('Necesitaremos algunos datos')
+        name = input('Ingrese su nombre:')
+        last_name = input('Ingrese su primer apellido:')
+
+        print('Bienvenido', name, last_name)
+
+        print("------+---------")
+        print(" Dia  | Horario ")
+        print("-----+----------")
+        print('(a)Lunes  | 1pm')
+        print('(b)Martes | 8am')
+        print('(c)Viernes| 10am')
+        print('(d)Sabado | 5pm')
+        print("------+---------")
+
+        cita = input('Ingrese el dia de la cita: (a,b,c,d)')
+
+        while True:
+            if cita == 'a':
+                print('Perfecto')
+                print('Su cita quedaria para el Lunes a la 1pm')
+                detallesCita = f"Electroencefalograma | {last_name}, {name} Lunes 1:00 PM"
+                break
+
+            elif cita == 'b':
+                print('Perfecto')
+                print('Su cita quedaria para el Martes a las 8am')
+                detallesCita = f"Electroencefalograma | {last_name}, {name} Martes 8:00 AM"
+                break
+
+            elif cita == 'c':
+                print('Perfecto')
+                print('Su cita quedaria para el Viernes a las 10am')
+                detallesCita = f"Electroencefalograma | {last_name}, {name} Viernes 10:00 AM"
+                break
+
+            elif cita == 'd':
+                print('Perfecto')
+                print('Su cita quedaria para el Sabado a las 5pm')
+                detallesCita = f"Electroencefalograma | {last_name}, {name} Sábado 5:00 PM"
+                break
+            else:
+                print("La opción seleccionada no existe, por favor intente de nuevo")
+                continue
+    elif answer == 'd':
+        costoCita = 150000
+        print('Necesitaremos algunos datos')
+        name = input('Ingrese su nombre:')
+        last_name = input('Ingrese su primer apellido:')
+
+        print('Bienvenido', name, last_name)
+
+        print("------+---------")
+        print(" Dia  | Horario ")
+        print("-----+----------")
+        print('(a)Lunes  | 1pm')
+        print('(b)Martes | 8am')
+        print('(c)Viernes| 10am')
+        print('(d)Sabado | 5pm')
+        print("------+---------")
+
+        cita = input('Ingrese el dia de la cita: (a,b,c,d)')
+
+        while True:
+            if cita == 'a':
+                print('Perfecto')
+                print('Su cita quedaria para el Lunes a la 1pm')
+                detallesCita = f"Electrocardiograma | {last_name}, {name} Lunes 1:00 PM"
+                break
+
+            elif cita == 'b':
+                print('Perfecto')
+                print('Su cita quedaria para el Martes a las 8am')
+                detallesCita = f"Electrocardiograma | {last_name}, {name} Martes 8:00 AM"
+                break
+
+            elif cita == 'c':
+                print('Perfecto')
+                print('Su cita quedaria para el Viernes a las 10am')
+                detallesCita = f"Electrocardiograma | {last_name}, {name} Viernes 10:00 AM"
+                break
+
+            elif cita == 'd':
+                print('Perfecto')
+                print('Su cita quedaria para el Sabado a las 5pm')
+                detallesCita = f"Electrocardiograma | {last_name}, {name} Sábado 5:00 PM"
+                break
+            else:
+                print("La opción seleccionada no existe, por favor intente de nuevo")
+                continue
+    elif answer == 'e':
+        costoCita = 30000
+        print('Necesitaremos algunos datos')
+        name = input('Ingrese su nombre:')
+        last_name = input('Ingrese su primer apellido:')
+
+        print('Bienvenido', name, last_name)
+
+        print("------+---------")
+        print(" Dia  | Horario ")
+        print("-----+----------")
+        print('(a)Lunes  | 1pm')
+        print('(b)Martes | 8am')
+        print('(c)Viernes| 10am')
+        print('(d)Sabado | 5pm')
+        print("------+---------")
+
+        cita = input('Ingrese el dia de la cita: (a,b,c,d)')
+
+        while True:
+            if cita == 'a':
+                print('Perfecto')
+                print('Su cita quedaria para el Lunes a la 1pm')
+                detallesCita = f"Revisión ginecológica | {last_name}, {name} Lunes 1:00 PM"
+                break
+
+            elif cita == 'b':
+                print('Perfecto')
+                print('Su cita quedaria para el Martes a las 8am')
+                detallesCita = f"Revisión ginecológica | {last_name}, {name} Martes 8:00 AM"
+                break
+
+            elif cita == 'c':
+                print('Perfecto')
+                print('Su cita quedaria para el Viernes a las 10am')
+                detallesCita = f"Revisión ginecológica | {last_name}, {name} Viernes 10:00 AM"
+                break
+
+            elif cita == 'd':
+                print('Perfecto')
+                print('Su cita quedaria para el Sabado a las 5pm')
+                detallesCita = f"Revisión ginecológica | {last_name}, {name} Sábado 5:00 PM"
+                break
+            else:
+                print("La opción seleccionada no existe, por favor intente de nuevo")
+                continue
+
+    continuar()
 
 
 def drugs():
