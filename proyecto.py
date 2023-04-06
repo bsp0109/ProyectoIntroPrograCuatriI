@@ -14,7 +14,7 @@ def login():
     password1 = "Sanchez"
     password2 = "Marin"
 
-    print("Bienvenid@ al sistema de estadía y servicio del Hospital #####")
+    print("Bienvenid@ al sistema de estadía y servicio del Hospital Raccoon")
 
     while True:
         global user
