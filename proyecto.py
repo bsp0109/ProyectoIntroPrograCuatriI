@@ -100,6 +100,7 @@ def continuar():
     cont = int(input("Desea realizar otro trámite? (0 = no, 1 = sí) > "))
     if cont == 0:
         checkout()
+
     else:
         menu()
 
@@ -429,23 +430,31 @@ def drugs():
 
 
 def checkout():
-    print("Bienvenido a cajas, a continuación se muestra su factura: ")
-    print("------------------------------------------------------------------------------")
-    print("Hospedaje:")
-    print("------------------------------------------------------------------------------")
-    print(f"Habitación: {room} | Estadía: {cantDias} días | Costo: ₡{roomCost}")
-    print("------------------------------------------------------------------------------")
-    print("Servicio:")
-    print("------------------------------------------------------------------------------")
-    print(f"{detallesCita} | Costo: ₡{costoCita}")
-    print("------------------------------------------------------------------------------")
-    print("Farmacia:")
-    print("------------------------------------------------------------------------------")
+    file = open('Factura.txt','w+')
+    file.write("------------------------------------------------------------------------------\n")
+    file.write("Hospedaje:\n")
+    file.write("------------------------------------------------------------------------------\n")
+    file.write(f"Habitación: {room} | Estadía: {cantDias} días | Costo: CRC{roomCost}\n")
+    file.write("------------------------------------------------------------------------------\n")
+    file.write("Servicio:\n")
+    file.write("------------------------------------------------------------------------------\n")
+    file.write(f"{detallesCita} | Costo: CRC{costoCita}\n")
+    file.write("------------------------------------------------------------------------------\n")
+    file.write("Farmacia:\n")
+    file.write("------------------------------------------------------------------------------\n")
     for i in range(len(medicamentos)):
-        print(f"Medicamento: {medicamentos[i]} | Costo: ₡{medicamentosCosto[i]}")
-    print("------------------------------------------------------------------------------")
-    print(f"Total: {roomCost + costoCita + sum(medicamentosCosto)}")
-    print("------------------------------------------------------------------------------")
+        file.write(f"Medicamento: {medicamentos[i]} | Costo: CRC{medicamentosCosto[i]}\n")
+    file.write("------------------------------------------------------------------------------\n")
+    file.write(f"Total: {roomCost + costoCita + sum(medicamentosCosto)}\n")
+    file.write("------------------------------------------------------------------------------\n")
+
+    choice = int(input("El archivo se ha guardado en este directorio con el nombre \"Factura.txt\". Desea abrir el archivo? (0 = No, 1 = Sí) > "))
+    if choice == 1: 
+        file.seek(0)
+        print(file.read())
+    else: return
+
+    file.close()
 
 
 # ------------------MAIN-------------------
